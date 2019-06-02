@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h2>Jenifly's NoteBook</h2>
+    <h2 @click="$router.push('/notebook')">Jenifly's NoteBook</h2>
   </div>
 </template>
 

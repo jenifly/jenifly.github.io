@@ -10,6 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
+      meta: {title: 'Home', color: '#6fb475'},
       component: () => import('./views/Home.vue')
     },
     {
@@ -21,13 +22,7 @@ export default new Router({
       path: '/notebook',
       name: 'notebook',
       meta: {title: 'NoteBook', color: '#6fb475'},
-      component: () => import('./views/NoteBook.vue'),
-      children: [{
-        path: '/notebook/article',
-        name: 'article',
-        meta: {title: 'Article', color: '#6fb475'},
-        component: () => import('./views/Article.vue')
-      }]
+      component: () => import('./views/NoteBook.vue')
     }
   ]
 })
