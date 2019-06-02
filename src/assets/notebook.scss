@@ -27,13 +27,14 @@
         list-style-type: none;
         cursor: pointer;
         line-height: 1.6em;
-        display: flex;
-        align-items: center;
+        // display: flex;
+        // align-items: center;
         svg {
           width: 1.2em; 
           height: 1.2em;
           margin-inline-end: .5em;
           vertical-align: middle;
+          pointer-events: none;
           fill: currentColor;
         }
       }
