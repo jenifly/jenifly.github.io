@@ -18,9 +18,20 @@ export default {
   data () {return {title: '', content: ''}},
   components: {remoteJs, remoteCss},
   created () {
+    console.log('bbbbbbbbbbbbbb');
+
     this.title = document.title = decodeURIComponent(this.$route.query.i)
     if(!this.$route.query.i) return this.$router.go(-1)
-    this.$nextTick(() => {
+    this.$nextTick(() => {      
+      this.doGet('https://raw.githubusercontent.com/jenifly/jenifly.github.io/master/notes/' + this.title + '.md', res => this.content = marked(res))
+    })
+  },
+  activated () {
+    console.log('aaaaaaaaaaaaaa');
+    
+    this.title = document.title = decodeURIComponent(this.$route.query.i)
+    if(!this.$route.query.i) return this.$router.go(-1)
+    this.$nextTick(() => {      
       this.doGet('https://raw.githubusercontent.com/jenifly/jenifly.github.io/master/notes/' + this.title + '.md', res => this.content = marked(res))
     })
   }

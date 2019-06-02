@@ -24,7 +24,7 @@ export default new Router({
       component: () => import('./views/NoteBook.vue'),
       children: [{
         path: '/notebook/article',
-        name: 'Article',
+        name: 'article',
         meta: {title: 'Article', color: '#6fb475'},
         component: () => import('./views/Article.vue')
       }]

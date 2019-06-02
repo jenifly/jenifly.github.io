@@ -1,20 +1,25 @@
 @import 'color';
 .notebook {
   display: flex;
+  .tb {
+    width: 3.2em;
+    height: 100%;
+    background-color: $FirstBorder;
+    svg {
+      cursor: pointer;
+      width: 2em;
+      height: 2em;
+      padding: .6em;
+      fill: var(--Primary)
+    }
+    .active {
+      background-color: $ThirdBorder;
+    }
+  }
   aside {
     width: 12em;
     height: 100%;
     background-color: $ThirdBorder;
-    display: flex;
-    flex-direction: column;
-    h2 {
-      margin: 0;
-      line-height: 2em;
-      text-align: center;
-    }
-    .base {
-      flex: 1;
-    }
     ul {
       margin: 0;
       padding-inline-start: 1.2em;
@@ -33,6 +38,11 @@
         }
       }
     }
+  }
+  .touch {
+    width: 2px;
+    height: 100%;
+    cursor: ew-resize;
   }
   section {
     flex: 1;
