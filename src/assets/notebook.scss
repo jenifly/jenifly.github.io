@@ -5,6 +5,8 @@
     width: 3.2em;
     height: 100%;
     background-color: $FirstBorder;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
     svg {
       cursor: pointer;
       width: 2em;
@@ -17,9 +19,11 @@
     }
   }
   aside {
-    width: 12em;
+    width: 13.2em;
     height: 100%;
+    overflow: auto;
     background-color: $ThirdBorder;
+    transition: all .2s ease-in-out;
     ul {
       margin: 0;
       padding-inline-start: 1.2em;
@@ -27,30 +31,48 @@
         list-style-type: none;
         cursor: pointer;
         line-height: 1.6em;
-        // display: flex;
-        // align-items: center;
-        svg {
-          width: 1.2em; 
-          height: 1.2em;
-          margin-inline-end: .5em;
-          vertical-align: middle;
-          pointer-events: none;
-          fill: currentColor;
+        .item {
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          padding-right: 1.2em;
+          svg {
+            width: 1.2em; 
+            height: 1.2em;
+            margin-inline-end: .5em;
+            vertical-align: middle;
+            pointer-events: none;
+            fill: currentColor;
+          }
         }
       }
     }
   }
   .touch {
-    width: 2px;
+    width: 3px;
     height: 100%;
     cursor: ew-resize;
+  }
+  .right {
+    width: 2em;
+    height: 1.8em;
+    fill: var(--Primary);
+    cursor: pointer;
+    position: absolute;
+    padding: .5em;
+    display: none;
+  }
+  .left {
+    @extend .right;
+    right: 0;
+    transform:rotate(180deg);
   }
   section {
     flex: 1;
     height: 100%;
     overflow: auto;
     .title {
-      min-width: 200px;
+      min-width: 300px;
       text-align: center;
       color: $MainText;
       font-size: 2em;
@@ -63,6 +85,26 @@
       box-sizing: border-box;
       margin: 0 auto;
       padding: 0 45px 45px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    aside {
+      width: 0 !important;
+    }
+    .aside-a {
+      width: calc(100vw - 3.2em) !important;
+    }
+    .tb {
+      width: 0;
+    }
+    .tb-a {
+      width: 3.2em;
+    }
+    .touch {
+      display: none;
+    }
+    .right {
+      display: block;
     }
   }
 }
