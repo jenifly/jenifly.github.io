@@ -1,0 +1,46 @@
+@import 'color';
+:root{
+  --Primary: #76a5af;
+  --Regular: #839CA4;
+  --Secondary: rgba(131, 156, 164, .2);
+  --Holder: rgba(131, 156, 164, .12);
+}
+html {
+  font-size: 100%;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+#app {
+  font-family: "Microsoft YaHei";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $RegularText;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: $Background;
+}
+.header {
+  position: fixed;
+  width: 100vw;
+  height: 4em;
+  line-height: 4em;
+  background-color: var(--Primary);
+  color: white;
+  h2 {
+    margin: 0;
+    padding-left: 2em;
+  }
+}
+.content {
+  position: fixed;
+  width: 100vw;
+  top: 4em;
+  bottom: 0;
+}
+.markdown-body .highlight pre, .markdown-body pre {
+  background-color: #f2f2f2 !important;
+}

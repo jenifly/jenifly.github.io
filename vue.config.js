@@ -1,18 +1,18 @@
-targetHost = 'https://github.com/jenifly/jenifly.github.io'
+// targetHost = 'https://api.github.com/repos/jenifly/jenifly.github.io'
 module.exports = {
   productionSourceMap: false,
-  devServer: {
-    overlay: {
-      warnings: false,
-    },
-    proxy: {
-      '/file-list': {
-        target: targetHost,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/file-list': targetHost + '/file-list'
-        }
-      }
-    }
-  }
+  // devServer: {
+  //   overlay: {
+  //     warnings: false,
+  //   },
+  //   proxy: {
+  //     '/contents': {
+  //       target: targetHost,
+  //       changeOrigin: true,
+  //       pathRewrite: {
+  //         '^/contents': targetHost + '/contents'
+  //       }
+  //     }
+  //   }
+  // }
 }

@@ -1,0 +1,57 @@
+@import 'color';
+.notebook {
+  display: flex;
+  aside {
+    width: 12em;
+    height: 100%;
+    background-color: $ThirdBorder;
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin: 0;
+      line-height: 2em;
+      text-align: center;
+    }
+    .base {
+      flex: 1;
+    }
+    ul {
+      margin: 0;
+      padding-inline-start: 1.2em;
+      li {
+        list-style-type: none;
+        cursor: pointer;
+        line-height: 1.6em;
+        display: flex;
+        align-items: center;
+        svg {
+          width: 1.2em; 
+          height: 1.2em;
+          margin-inline-end: .5em;
+          vertical-align: middle;
+          fill: currentColor;
+        }
+      }
+    }
+  }
+  section {
+    flex: 1;
+    height: 100%;
+    overflow: auto;
+    .title {
+      min-width: 200px;
+      text-align: center;
+      color: $MainText;
+      font-size: 2em;
+      box-sizing: border-box;
+      padding: 0 45px;
+    }
+    article {
+      min-width: 200px;
+      max-width: 980px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 0 45px 45px;
+    }
+  }
+}
