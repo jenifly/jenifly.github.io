@@ -11,6 +11,22 @@ Vue.prototype.doGet = (url, success, error) => {
   .then(res => success(res.data))
   .catch(err => error?error(err):console.log(err))
 }
+Vue.prototype.cookie = {
+  set (key, val, time) {
+    let date=new Date()
+    date.setTime(date.getTime()+time*24*3600*1000)
+    document.cookie=key + "=" + val +";expires="+date.toGMTString()
+  },
+  get (key) {
+    var r = document.cookie.match("\\b" + key + "=([^;]*)\\b")
+    return r ? r[1] : undefined
+  },
+  delete (key) {
+    let date = new Date()
+    date.setTime(date.getTime()-10000)
+    document.cookie = key + "=v; expires =" +date.toGMTString()
+  }
+}
 
 router.beforeEach((to, from, next) => {
   document.documentElement.style.setProperty('--Primary', to.meta.color)
