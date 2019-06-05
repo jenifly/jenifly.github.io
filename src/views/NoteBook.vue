@@ -16,19 +16,23 @@
       <svg v-show="r==0" class="right" viewBox="0 0 1024 1024" v-html="svg.r" @click="r=1"></svg>
       <h3 v-if="!content&&!loading">这是布置在GitHub Pages上的静态Vue项目，路由可能会存在某些问题<br>欢迎在 <a href="https://github.com/jenifly/jenifly.github.io" target="_blank">https://github.com/jenifly/jenifly.github.io</a> 提交issues</h3>
       <div class="yiyan" v-if="!content&&!loading">
-        <img :src="yiyan.src">
-        <p :class="'jy'+yiyan.class" v-html="yiyan.content"></p>
-        <span>- {{yiyan.title}} -</span>
-      </div>
-      <div v-if="loading" class="loading yiyan" style="width:13em">
-        <div class="spinner">
-          <div class="rect1"></div>
-          <div class="rect2"></div>
-          <div class="rect3"></div>
-          <div class="rect4"></div>
-          <div class="rect5"></div>
+        <div class="item" v-for="i in 3">
+          <img :src="yiyan.src">
+          <p :class="'jy'+yiyan.class" v-html="yiyan.content"></p>
+          <span>- {{yiyan.title}} -</span>
         </div>
-        <span>加载中...</span>
+      </div>
+      <div v-if="loading" class="yiyan">
+        <div class="item" style="width:13em">
+          <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+          </div>
+          <span>加载中...</span>
+        </div>
       </div>
       <h1 v-if="content" class="title">{{title}}</h1>
       <article v-if="content" class="markdown-body" v-html="content"/>
@@ -219,6 +223,7 @@ export default {
       }
     },
     catalogue () {
+      this.$refs.catalogue.innerHTML = ''
       for(let a=0;a<this.heads.length;a++){
         let b = document.createElement('li')
         b.innerHTML = `<svg viewBox="0 0 1024 1024">${this.svg.cr}</svg>${this.heads[a][0]}`
