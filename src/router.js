@@ -10,19 +10,26 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      meta: {title: 'Home', color: '#6fb475'},
+      meta: {title: 'Home', color: '#76a5af'},
       component: () => import('./views/Home.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue')
+      path: '/yiyan',
+      name: 'yiyan',
+      meta: {title: 'YiYan', color: '#a39896'},
+      component: () => import('./views/YiYan.vue')
     },
     {
       path: '/notebook',
       name: 'notebook',
       meta: {title: 'NoteBook', color: '#6fb475'},
       component: () => import('./views/NoteBook.vue')
-    }
+    },
+    {
+      path: '/editor',
+      name: 'editor',
+      meta: {title: 'Editor', color: '#a39896'},
+      component: () => import('./views/Editor.vue')
+    },
   ]
 })

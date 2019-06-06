@@ -23,13 +23,50 @@ html, body {
 .header {
   position: fixed;
   width: 100vw;
-  height: 4em;
   line-height: 4em;
   background-color: var(--Primary);
   color: white;
+  display: flex;
+  z-index: 888;
+  justify-content: space-between;
   h2 {
     margin: 0;
     padding-left: 1.6em;
+  }
+  svg {
+    width: 1.6em;
+    height: 1.6em;
+    fill: white;
+    margin: 1.2em 1em;
+    position: fixed;
+    right: 0;
+    top: 0;
+    outline: none;
+    display: none;
+    cursor: pointer;
+  }
+  .nav {
+    overflow: hidden;
+    transition: height .4s cubic-bezier(0.94, 0.25, 0.64, 0.94);
+    h4 {
+      display: inline-block;
+      margin: 0 2em 0 0;
+      cursor: pointer;
+      position: relative;
+      text-transform: uppercase;
+    }
+    .active {
+      cursor: auto;
+      &:after {
+        content: '';
+        left: calc(50% - .2em);
+        top: 3em;
+        position: absolute;
+        border-style: solid;
+        border-width: 0 .4em .4em;
+        border-color: transparent transparent white;
+      }
+    }
   }
 }
 .content {
@@ -38,6 +75,86 @@ html, body {
   top: 4em;
   bottom: 0;
 }
+@media screen and (max-width: 860px) {
+  .header {
+    display: block;
+    h2 {
+      padding-left: 1em;
+    }
+    svg {
+      display: block;
+      &:focus + .nav {
+        height: 8.4em;
+      }
+    }
+    .nav {
+      height: 0;
+      h4 {
+        display: block;
+        margin-left: 2em;
+        padding-left: 1.2em;
+        line-height: 2em;
+      }
+      .active:after {
+        top: calc(50% - .2em);
+        left: 0;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+@media screen and (max-width: 420px) {
+  .header {
+    font-size: .9em;
+    line-height: 3.6em;
+    h2 {
+      padding-left: .8em;
+    }
+    svg {
+      width: 1.6em;
+      height: 1.6em;
+      margin: 1em;
+    }
+  }
+  .content {
+    top: 3.2em;
+  }
+}
 .markdown-body .highlight pre, .markdown-body pre {
   background-color: #f2f2f2 !important;
+}
+pre, .scroll {
+  &::-webkit-scrollbar-thumb {
+    background: $PlaceholderText;
+    border-radius: .3em;
+    &:hover {
+      background: $SecondaryText;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: .6em;
+    height: .6em;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+    background-size: .6em .6em;
+  }
+}
+@media screen and (max-width: 725px) {
+  pre, .scroll {
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0;
+    }
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+    }
+    &::-webkit-scrollbar-corner {
+      background-color: transparent;
+      background-size: 3px 3px;
+    }
+  }
 }

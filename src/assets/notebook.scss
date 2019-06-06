@@ -28,19 +28,21 @@
     transition: all .2s ease-in-out;
     ul {
       margin: 0;
-      width: 100%;
+      width: auto;
       padding-inline-start: 1.2em;
       li {
         list-style-type: none;
         cursor: pointer;
-        white-space: nowrap;
         line-height: 1.6em;
         display: flex;
+        width: auto;
+        white-space: nowrap;
         align-items: center;
         svg {
-          width: 1.2em; 
-          height: 1.2em;
+          min-width: 1.2em; 
+          min-height: 1.2em;
           margin-inline-end: .5em;
+          white-space: nowrap;
           vertical-align: middle;
           pointer-events: none;
           fill: currentColor;
@@ -56,6 +58,8 @@
       padding-inline-start: 1em;
       svg{
         margin: 0;
+        pointer-events: all;
+        cursor: pointer !important;
       }
     }
   }
@@ -70,15 +74,17 @@
     height: 1.8em;
     fill: var(--Primary);
     cursor: pointer;
-    position: absolute;
-    padding: .5em;
+    position: fixed;
+    margin: .5em;
     display: none;
     z-index: 888;
+    background-color: $Background;
   }
   .left {
     @extend .right;
     right: 0;
     transform:rotate(180deg);
+    background-color: $ThirdBorder;
   }
   section {
     flex: 1;
@@ -86,7 +92,7 @@
     overflow: auto;
     position: relative;
     transition: background .2s ease-in-out;
-    h3 {
+    .ph {
       font-weight: normal;
       text-align: center;
       position: absolute;
@@ -103,20 +109,7 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      @media screen and (max-width: 1240px) {
-        .item:nth-child(2){
-          display: none;
-        }
-        .item:nth-child(3){
-          display: none;
-        }
-      }
-      @media screen and (max-width: 1650px) {
-        .item:nth-child(3){
-          display: none;
-        }
-      }
-      .item{
+      .item {
         &:nth-child(2){
           margin-left: 8em;
         }
@@ -124,28 +117,30 @@
           margin-left: 8em;
         }
         box-shadow: 0 0 6px rgba(#222222, .2);
-        width: 18em;
+        width: 16em;
         background: $Background;
-        padding-bottom: .8em;
+        padding-bottom: 1.8em;
+        position: relative;
         img {
           display: block;
           width: 100%;
         }
-        p {
-          margin: 1.6em;
-        }
         .jy0 {
+          padding: 1.6em;
           line-height: 1.6em;
         }
         span {
           display: block;
           text-align: center;
           font-size: .8em;
+          position: absolute;
+          bottom: 1em;
+          width: 100%;
         }
       }
     }
     .title {
-      min-width: 300px;
+      min-width: 320px;
       text-align: center;
       color: $MainText;
       font-size: 2em;
@@ -157,7 +152,7 @@
       max-width: 980px;
       box-sizing: border-box;
       margin: 0 auto;
-      padding: 0 45px 45px;
+      padding: 0 2.4em 3em 3em;
     }
   }
   @media screen and (max-width: 725px) {
@@ -179,17 +174,28 @@
     .right {
       display: block;
     }
+    section article {
+      padding: 0 calc(1.2em - 3px) 3em 1.2em;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    section {
+      .ph {
+        display: none;
+      }
+      .yiyan .item {
+        height: 25em;
+      }
+    }
   }
   .loading {
     background: rgba(#000, .2);
   }
   .spinner {
-    margin: auto;
-    padding: 1.6em 0 1em;
+    padding: 1em 0 .4em 0;
     text-align: center;
-    font-size: 10px;
   }
-  .spinner > div {
+  .spinner div {
     background-color: var(--Primary);
     height: 60px;
     width: 6px;
