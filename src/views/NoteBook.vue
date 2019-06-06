@@ -59,6 +59,7 @@ export default {
   },
   created () {
     this.doGet('https://raw.githubusercontent.com/jenifly/jenifly.github.io/master/res/yiyan/0.josn', res => this.yiyan = res)
+    if(this.cookie.get('u')) this.$router.push({path: '/notebook', query: {i: this.cookie.get('u')}})
     this.$nextTick(() => {
       this.load(this.$route.query.i)
       this.yi = Math.floor(this.$refs.sct.clientWidth / 440)
@@ -184,10 +185,9 @@ export default {
     },
     getList (s) {
       this.doGet(this.baseUrl + (s?s.path:'notes'), res => {
-        if(s)
-          this.$set(s, 'child', res)
-        else
-          this.notes = res.sort((a, b) => a.type.length<b.type.length?-1:0)
+        res = res.sort((a, b) => a.type.length<b.type.length?-1:0)
+        if(s) return this.$set(s, 'child', res)
+        this.notes = res
       })
     },
     initMarked () {
@@ -234,7 +234,9 @@ export default {
           this.r = 0
         })
         this.cacheLi = j
-        this.$router.push({path: '/notebook', query: {i: encodeURIComponent(i.path.split('.')[0])}})
+        let a = encodeURIComponent(i.path.split('.')[0])
+        this.cookie.set('u', a, 1)
+        this.$router.push({path: '/notebook', query: {i: a}})
       }else {
         if(!i.child) {
           if(this.s) return; else this.s = 1
