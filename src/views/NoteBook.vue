@@ -59,7 +59,7 @@ export default {
   },
   created () {
     this.doGet('https://raw.githubusercontent.com/jenifly/jenifly.github.io/master/res/yiyan/0.josn', res => this.yiyan = res)
-    if(this.cookie.get('u')) this.$router.push({path: '/notebook', query: {i: this.cookie.get('u')}})
+    // if(this.cookie.get('u')) this.$router.push({path: '/notebook', query: {i: this.cookie.get('u')}})
     this.$nextTick(() => {
       this.load(this.$route.query.i)
       this.yi = Math.floor(this.$refs.sct.clientWidth / 440)
