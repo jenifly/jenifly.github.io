@@ -93,6 +93,7 @@ export default {
   watch: {
     $route (v) { // 监听路由传参（利用url保存数据，防刷新丢失、实现浏览器后退前进）
       this.content = ''
+      if(v.name=='notebook'&&!v.query.i&&this.cookie.get('u')) return this.$router.push({path: '/notebook', query: {i: this.cookie.get('u')}})
       this.load(v.query.i)
     }
   },
