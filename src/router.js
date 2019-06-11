@@ -22,13 +22,13 @@ export default new Router({
     {
       path: '/notebook',
       name: 'notebook',
-      meta: {title: 'NoteBook', color: '#6fb475'},
+      meta: {title: 'NoteBook', color: '#84af9c'},
       component: () => import('./views/NoteBook.vue')
     },
     {
       path: '/editor',
       name: 'editor',
-      meta: {title: 'Editor', color: '#a39896'},
+      meta: {title: 'Editor', color: '#8C9ab1'},
       component: () => import('./views/Editor.vue')
     },
   ]

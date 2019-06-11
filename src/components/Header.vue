@@ -19,6 +19,7 @@ export default {
   methods: {
     click (a) {
       if(this.$route.name == a) return
+      if(a=='notebook'&&this.cookie.get('u')) return this.$router.push({path: '/notebook', query: {i: this.cookie.get('u')}})
       this.$router.push({name: a})
     }
   }

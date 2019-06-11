@@ -12,7 +12,8 @@
       width: 2em;
       height: 2em;
       padding: .6em;
-      fill: currentColor
+      fill: currentColor;
+      transition: all .2s ease-in-out;
     }
     .active {
       background-color: $ThirdBorder;
@@ -69,22 +70,25 @@
     cursor: ew-resize;
     transition: background .2s ease-in-out;
   }
-  .right {
-    width: 2em;
-    height: 1.8em;
-    fill: var(--Primary);
+  .menu {
+    width: 32px;
+    height: 32px;
+    right: 16px;
+    bottom: 16px;
+    fill: $Background;
+    padding: 8px;
     cursor: pointer;
     position: fixed;
-    margin: .5em;
     display: none;
     z-index: 888;
-    background-color: $Background;
+    border-radius: 50%;
+    background-color: var(--Primary);
+    box-shadow: 0 0 4px rgba(#000, .2);
+    transition: all .3s ease-in-out;
   }
-  .left {
-    @extend .right;
-    right: 0;
-    transform:rotate(180deg);
-    background-color: $ThirdBorder;
+  .menu-a {
+    fill: var(--Primary);
+    background-color: $Background;
   }
   section {
     flex: 1;
@@ -171,11 +175,11 @@
     .touch {
       display: none;
     }
-    .right {
-      display: block;
+    .menu {
+      display: block; 
     }
     section article {
-      padding: 0 calc(1.2em - 3px) 3em 1.2em;
+      padding: 0 calc(1.2em - 3px) 1.2em 1.2em;
     }
   }
   @media screen and (max-width: 420px) {

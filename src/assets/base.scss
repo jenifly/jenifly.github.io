@@ -25,6 +25,7 @@ html, body {
   width: 100vw;
   line-height: 4em;
   background-color: var(--Primary);
+  transition: background .3s ease-in-out;
   color: white;
   display: flex;
   z-index: 888;
@@ -47,7 +48,7 @@ html, body {
   }
   .nav {
     overflow: hidden;
-    transition: height .4s cubic-bezier(0.94, 0.25, 0.64, 0.94);
+    transition: height .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     h4 {
       display: inline-block;
       margin: 0 2em 0 0;
@@ -115,6 +116,9 @@ html, body {
       height: 1.6em;
       margin: 1em;
     }
+  }
+  * {
+    cursor: auto !important;
   }
   .content {
     top: 3.2em;
