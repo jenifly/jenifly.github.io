@@ -106,7 +106,7 @@ export default {
         this.cookie.set('a', c.scrollLeft + '-' + c.scrollTop, 1)
         setTimeout(() => {pp = c}, 200)
       })
-      this.doGet(this.baseUrl + (s?s.path:'notes'), res => this.notes = res.sort((a, b) => a.type.length<b.type.length?-1:0))
+      this.doGet(this.baseUrl + (s?s.path:'notes'), res => this.notes = res.sort((a, b) => a.type.length<b.type.length?-1:1))
     })
   },
   mounted() {
@@ -273,7 +273,7 @@ export default {
         if(!i.child) {
           if(this.s) return; else this.s = 1
           return this.doGet(this.baseUrl + i.path, res => {
-            this.$set(i, 'child', res.sort((a, b) => a.type.length<b.type.length?-1:0))
+            this.$set(i, 'child', res.sort((a, b) => a.type.length<b.type.length?-1:1))
             let a = document.createElement('ul')
             for(let b of i.child) {
               let c = document.createElement('li')
