@@ -98,7 +98,7 @@ quotactl|控制磁盘配额|fs/quota/quota.c
 
 ## 三、系统控制
 
-函数名|描述|文件|
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 ioctl|I/O总控制函数|fs/ioctl.c
 _sysctl|读/写系统参数|kernel/sysctl_binary.c
@@ -137,7 +137,7 @@ query_module|查询模块信息|
 
 ## 四、内存管理
 
-函数名|描述|文件|
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 brk|改变数据段空间的分配|mm/mmap.c
 sbrk|参见brk|
@@ -156,7 +156,7 @@ cacheflush|将指定缓冲区中的内容写回磁盘|
 
 ## 五、网络管理
 
-函数名|描述|文件|
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 getdomainname|取域名|
 setdomainname|设置域名|kernel/sys.c
@@ -166,7 +166,7 @@ gethostname|获取本主机名称|
 sethostname|设置主机名称|kernel/sys.c
 ## 六、socket控制
 
-函数名|描述|文件|
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 socketcall|socket系统调用|
 socket|建立socket|net/socket.c
@@ -191,7 +191,7 @@ socketpair|创建一对已联接的无名socket|net/socket.c
 
 ## 七、用户管理
 
-函数名|描述|文件|
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 getuid|获取用户标识号|kernel/sys.c
 setuid|设置用户标志号|kernel/sys.c
@@ -214,7 +214,7 @@ setgroups|设置后补组标志清单|kernel/groups.c
 
 ## 八、进程间通信
 
-函数名|描述|文件|
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 ipc|进程间通信总控制调用|
 **1、信号**|
@@ -264,7 +264,7 @@ socketpair|创建一对已联接的无名socket|net/socket.c
 
 ## 七、用户管理
 
-函数名|描述|文件
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 getuid|获取用户标识号|kernel/sys.c
 setuid|设置用户标志号|kernel/sys.c
@@ -287,7 +287,7 @@ setgroups|设置后补组标志清单|kernel/groups.c
 
 ## 八、进程间通信
 
-函数名|描述|文件
+|函数名|描述|文件|
 | ----- | ------------- | ----- |
 ipc|进程间通信总控制调用|
 **1、信号**||
