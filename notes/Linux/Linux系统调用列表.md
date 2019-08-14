@@ -98,7 +98,7 @@ quotactl|控制磁盘配额|fs/quota/quota.c
 
 ## 三、系统控制
 
-函数名|描述|文件
+函数名|描述|文件|
 | ----- | ------------- | ----- |
 ioctl|I/O总控制函数|fs/ioctl.c
 _sysctl|读/写系统参数|kernel/sysctl_binary.c
@@ -137,7 +137,7 @@ query_module|查询模块信息|
 
 ## 四、内存管理
 
-函数名|描述|文件
+函数名|描述|文件|
 | ----- | ------------- | ----- |
 brk|改变数据段空间的分配|mm/mmap.c
 sbrk|参见brk|
@@ -156,7 +156,7 @@ cacheflush|将指定缓冲区中的内容写回磁盘|
 
 ## 五、网络管理
 
-函数名|描述|文件
+函数名|描述|文件|
 | ----- | ------------- | ----- |
 getdomainname|取域名|
 setdomainname|设置域名|kernel/sys.c
@@ -166,7 +166,7 @@ gethostname|获取本主机名称|
 sethostname|设置主机名称|kernel/sys.c
 ## 六、socket控制
 
-函数名|描述|文件
+函数名|描述|文件|
 | ----- | ------------- | ----- |
 socketcall|socket系统调用|
 socket|建立socket|net/socket.c
@@ -174,6 +174,79 @@ bind|绑定socket到端口|net/socket.c
 connect|连接远程主机|net/socket.c
 accept|响应socket连接请求|net/socket.c
 send|通过socket发送信息|
+sendto|发送UDP信息|net/socket.c
+sendmsg|参见send|net/socket.c
+recv|通过socket接收信息|
+recvfrom|接收UDP信息|net/socket.c
+recvmsg|参见recv|net/socket.c
+listen|监听socket端口|net/socket.c
+select|对多路同步I/O进行轮询|fs/select.c
+shutdown|关闭socket上的连接|net/socket.c
+getsockname|取得本地socket名字|net/socket.c
+getpeername|获取通信对方的socket名字|net/socket.c
+getsockopt|取端口设置|net/socket.c
+setsockopt|设置端口参数|net/socket.c
+sendfile|在文件或端口间传输数据|fs/read_write.c
+socketpair|创建一对已联接的无名socket|net/socket.c
+
+## 七、用户管理
+
+函数名|描述|文件|
+| ----- | ------------- | ----- |
+getuid|获取用户标识号|kernel/sys.c
+setuid|设置用户标志号|kernel/sys.c
+getgid|获取组标识号|kernel/sys.c
+setgid|设置组标志号|kernel/sys.c
+getegid|获取有效组标识号|kernel/sys.c
+setegid|设置有效组标识号|kernel/sys.c
+geteuid|获取有效用户标识号|kernel/sys.c
+seteuid|设置有效用户标识号|kernel/sys.c
+setregid|分别设置真实和有效的的组标识号|kernel/sys.c
+setreuid|分别设置真实和有效的用户标识号|kernel/sys.c
+getresgid|分别获取真实的,有效的和保存过的组标识号|kernel/sys.c
+setresgid|分别设置真实的,有效的和保存过的组标识号|kernel/sys.c
+getresuid|分别获取真实的,有效的和保存过的用户标识号|kernel/sys.c
+setresuid|分别设置真实的,有效的和保存过的用户标识号|kernel/sys.c
+setfsgid|设置文件系统检查时使用的组标识号|kernel/sys.c
+setfsuid|设置文件系统检查时使用的用户标识号|kernel/sys.c
+getgroups|获取后补组标志清单|kernel/groups.c
+setgroups|设置后补组标志清单|kernel/groups.c
+
+## 八、进程间通信
+
+函数名|描述|文件|
+| ----- | ------------- | ----- |
+ipc|进程间通信总控制调用|
+**1、信号**|
+sigaction|设置对指定信号的处理方法|
+sigprocmask|根据参数对信号集中的信号执行阻塞/解除阻塞等操作|
+sigpending|为指定的被阻塞信号设置队列|
+sigsuspend|挂起进程等待特定信号|
+signal|参见signal|
+kill|向进程或进程组发信号|kernel/signal.c
+*sigblock|向被阻塞信号掩码中添加信号,已被sigprocmask代替|
+*siggetmask|取得现有阻塞信号掩码,已被sigprocmask代替|
+*sigsetmask|
+*sigmask|将给定的信号转化为掩码,已被sigprocmask代替|
+*sigpause|作用同sigsuspend,已被sigsuspend代替|
+sigvec|为兼容BSD而设的信号处理函数,作用类似sigaction|
+ssetmask|ANSI C的信号处理函数,作用类似sigaction|
+**2、消息**|
+msgctl|消息控制操作|ipc/msg.c
+msgget|获取消息队列|ipc/msg.c
+msgsnd|发消息|ipc/msg.c
+msgrcv|取消息|ipc/msg.c
+**3、管道**||
+pipe|创建管道|fs/pipe.c
+**4、信号量**||
+semctl|信号量控制|ipc/sem.c
+semget|获取一组信号量|ipc/sem.c
+semop|信号量操作|ipc/sem.c
+**5、共享内存**||
+shmctl|控制共享内存|ipc/shm.c
+shmget|获取共享内存|ipc/shm.c
+shmat|连接共享内存|ipc/shm.c
+shmdt|拆卸共享内存|ipc/shm.c送信息|
 sendto|发送UDP信息|net/socket.c
 sendmsg|参见send|net/socket.c
 recv|通过socket接收信息|
